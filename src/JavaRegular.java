@@ -26,11 +26,24 @@ public class JavaRegular {
 		}
 	}
 	
+	
+	public static void testRex(String desStr, String pattern){
+		String info = String.format("desStr : [%s] || rex : [%s]", desStr,pattern);
+		System.out.println(info);
+		String rex = pattern;
+		Pattern p = Pattern.compile(rex);
+		Matcher m = p.matcher(desStr);
+		if(m.find()){
+			System.out.println("Done!");
+		}else{
+			System.out.println("HEHE");
+		}
+	}
 	public static void main(String[] argv){
 		//run
-		String[] testStr = {"Abka","Jpad"};
+		String[] testStr = {"Abka","Jpad","Bc"};
 		for(String s : testStr){
-			JavaRegular.test1(s);
+			JavaRegular.testRex(s,"^Ab");
 		}
 	}
 }
