@@ -51,6 +51,7 @@ public class JavaRegular {
 			Matcher m = p.matcher(s);
 			if (m.find()) {
 				System.out.println("Done!");
+				System.out.println(m.group());
 			} else {
 				System.out.println("HEHE");
 			}
@@ -68,6 +69,8 @@ public class JavaRegular {
 		testRex("a*","aa","cc","()");
 		testRex("a+","aa","cc","()");
 		
-		testRex("\\(\\+ \\d \\d\\)+", "(+ 1 2 9)");
+		testRex("(\\()", "(+ 1 2 9)","(+ 1 2)");
+		
+		testRex("(\\([.*?]\\))", "(+ 1 2 9)","(+ 1 2)");
 	}
 }
