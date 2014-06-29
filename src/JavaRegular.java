@@ -57,6 +57,16 @@ public class JavaRegular {
 			}
 		}
 	}
+	
+	public static void testGroup(){
+		String str = "hehe get out.";
+		Pattern p = Pattern.compile( "g(e)");
+		Matcher m = p.matcher(str);
+		m.find();
+		System.out.println(m.group());
+		System.out.println(m.group(0));
+		System.out.println(m.group(1));
+	}
 	public static void main(String[] argv){
 		//run
 		System.out.println("^ 以什么开头 ---居然能匹配'\\n'");
@@ -66,11 +76,17 @@ public class JavaRegular {
 		}
 		
 		System.out.println(" *匹配前面的子表达式零次或者多次  ");
-		testRex("a*","aa","cc","()");
-		testRex("a+","aa","cc","()");
+		//testRex("a*","aa","cc","()");
+		//testRex("a+","aa","cc","()");
 		
-		testRex("(\\()", "(+ 1 2 9)","(+ 1 2)");
+		testRex("\\(.*?\\)", "(+ 1 2 9)","(+ 1 2)");
 		
-		testRex("(\\([.*?]\\))", "(+ 1 2 9)","(+ 1 2)");
+		//testRex("(\\([.*?]\\))", "(+ 1 2 9)","(+ 1 2)");
+		
+		
+		/***
+		 * java 中group的使用 group(0) 表示匹配的整个串 group(1) 表示第一个组..
+		 */
+		JavaRegular.testGroup();
 	}
 }
