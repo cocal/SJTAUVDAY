@@ -1,5 +1,6 @@
 package poj;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -8,6 +9,23 @@ import java.util.Scanner;
  * 企业电话号码转换
  * @author cocal
  *
+ */
+
+
+/******
+ 12
+4873279
+ITS-EASY
+888-4567
+3-10-10-10
+888-GLOP
+TUT-GLOP
+967-11-11
+310-GINO
+F101010
+888-1200
+-4-8-7-3-2-7-9-
+487-3279
  */
 public class poj1002 {
 	static int  mapDict[] = {2,2,2,3,3,3, 4,4,4, 5,5,5, 6,6,6, 7,-1,7,7, 8,8,8, 9,9,9,-1};
@@ -53,8 +71,19 @@ public class poj1002 {
 				phonesAndNum.put(temp, 1);			
 		}
 		
-		for(String str : phonesAndNum.keySet()){
-			System.out.println(str + " " + phonesAndNum.get(str));//缺少 按 val值排序
-		}
+//		for(String str : phonesAndNum.keySet()){
+//			System.out.println(str + " " + phonesAndNum.get(str));//缺少 按 val值排序
+//		}
+		Object[] keys = phonesAndNum.keySet().toArray();
+	    Arrays.sort(keys);
+	    for(Object k : keys){
+            String kk = (String)k;
+            if(phonesAndNum.get(kk)>1){
+                System.out.println(kk + " " + phonesAndNum.get(kk));
+            }
+        }
 	}
 }
+
+
+
