@@ -93,7 +93,7 @@ public class poj1002 {
             }
         }
 	    if(f==1)
-	    	System.out.println("No duplicates.");
+	    	System.out.println("No duplicates. ");
 	}
 }
 
