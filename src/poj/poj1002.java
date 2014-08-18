@@ -40,8 +40,15 @@ public class poj1002 {
 			char temp = val[i];
 			if (temp >= '0' && temp <= '9')
 				standPhone += temp;
-			else if(temp >= 'A' && temp <= 'Z'){
+			else if((temp >= 'A' && temp <= 'Z')){
 				int k = mapDict[temp - 'A'];
+				if(k == -1 )
+					continue;
+				standPhone += k;
+			}else if((temp >= 'a' && temp <= 'z')){
+				int k = mapDict[temp - 'a'];
+				if(k == -1 )
+					continue;
 				standPhone += k;
 			}else
 				continue;
