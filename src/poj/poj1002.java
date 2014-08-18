@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 
 /******
- 12
+12
 4873279
 ITS-EASY
 888-4567
@@ -58,11 +58,11 @@ public class poj1002 {
 	}
 	
 	public static void main(String args[]) {
-		System.out.println(StandNos("123-AB"));
+//		System.out.println(StandNos("123-AB"));
 		Scanner cin = new Scanner(System.in);
 		int count = cin.nextInt();
 		for(int k=0 ; k<count ; k++){
-			String temp = cin.nextLine();
+			String temp = cin.next();
 			temp = StandNos(temp);
 			if(phonesAndNum.containsKey(temp)){
 				Integer m = phonesAndNum.get(temp);
@@ -70,18 +70,23 @@ public class poj1002 {
 			}else
 				phonesAndNum.put(temp, 1);			
 		}
-		
+//		
 //		for(String str : phonesAndNum.keySet()){
 //			System.out.println(str + " " + phonesAndNum.get(str));//缺少 按 val值排序
 //		}
+//		System.out.println("---");
 		Object[] keys = phonesAndNum.keySet().toArray();
 	    Arrays.sort(keys);
+	    int f = 1;
 	    for(Object k : keys){
             String kk = (String)k;
             if(phonesAndNum.get(kk)>1){
+            	f = 2;
                 System.out.println(kk + " " + phonesAndNum.get(kk));
             }
         }
+	    if(f==1)
+	    	System.out.println("No duplicates.");
 	}
 }
 
