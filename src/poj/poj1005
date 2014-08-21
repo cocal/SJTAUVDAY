@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class Main{
+	public static void main(String[] args){
+		Scanner in=new Scanner(System.in);
+		int len=in.nextInt();
+		int ncase=1;
+		while(ncase<=len){
+			double x=in.nextDouble();
+			double y=in.nextDouble();
+			double area=Math.PI*(x*x+y*y);
+			int ans=0;
+			double sum=0;
+			while(sum<area){
+				ans++;
+				sum+=100;
+			}
+			System.out.println("Property "+ncase+": This property will begin eroding in year "+ans+".");
+			ncase++;
+		}
+		System.out.println("END OF OUTPUT.");
+	}
+}
